@@ -1,14 +1,15 @@
 <?php
-namespace SimpleRepo\Commands;
 
-/**
- * Class BindingsGenerator
- * @package Prettus\Repository\Generators
- * @author Anderson Andrade <contato@andersonandra.de>
- */
-class MakeBinding extends GeneratorCommand
+namespace LaravelSimpleRepo\Commands;
+
+use Illuminate\Support\Str;
+use Illuminate\Console\GeneratorCommand;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Exception\InvalidArgumentException;
+
+class MakeRepoInterface extends GeneratorCommand
 {
-
     /**
      * The console command name.
      *
@@ -17,52 +18,47 @@ class MakeBinding extends GeneratorCommand
     protected $name = 'make:binding';
 
     /**
+     * The placeholder for repository bindings
+     *
+     * @var string
+     */
+    public $bindPlaceholder = '//:end-bindings:';
+
+    /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Binding repository and its interface to service provider.';
+    protected $description = 'Binding between Repository and its Interface';
 
-    /**
-     * The type of class being generated.
-     *
-     * @var string
-     */
-    protected $type = 'Binding';
+    public function handle() {
 
-    /**
-     * Execute the console command.
-     *
-     * @return void
-     */
-    public function handle()
-    {
-        if (parent::handle() === false && ! $this->option('force')) {
-            return;
-        }
+        $name = $this->argument('name');
 
-        $this->fire();
+        $provider = \File::get($this->getProviderPath());
+        $repositoryInterface = '\\' . $name . "Interface" . "::class";
+        \File::put($this->getProviderPath(), 
+                   str_replace($this->bindPlaceholder, "\$this->app->bind({$repositoryInterface}, $name);" . PHP_EOL . '        ' . $this->bindPlaceholder, $provider)); 
     }
 
     /**
-     * Execute the command.
+     * Get base path of destination file.
      *
-     * @return void
+     * @return string
      */
-    public function fire()
+    public function getProviderPath()
     {
-        try {
-            $bindingGenerator = new BindingsGenerator([
-                'name' => $this->argument('name'),
-                'force' => $this->option('force'),
-            ]);
-
-            $bindingGenerator->run();
-            $this->info($this->type . ' created successfully.');
-        } catch (FileAlreadyExistsException $e) {
-            $this->error($this->type . ' already exists!');
-
-            return false;
-        }
+        return config('lsp.provider.backend');
     }
+
+    /**
+     * Get the stub file for the generator.
+     *
+     * @return string
+     */
+    protected function getStub()
+    {
+        return __DIR__.'/Stubs/make-binding.stub';
+    }
+
 }

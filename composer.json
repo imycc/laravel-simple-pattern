@@ -21,13 +21,13 @@
     },
     "autoload": {
         "psr-4": {
-          "SimpleRepo\\": "src/"
+          "LaravelSimpleRepo\\": "src/"
         }
     },
     "extra": {
         "laravel": {
           "providers": [
-            "SimpleRepo\\Provider\\BackendServiceProvider"
+            "LaravelSimpleRepo\\Provider\\BackendServiceProvider"
           ]
         }
     }

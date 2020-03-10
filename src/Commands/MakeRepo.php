@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleRepo\Commands;
+namespace LaravelSimpleRepo\Commands;
 
 use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
@@ -45,6 +45,10 @@ class MakeRepo extends GeneratorCommand
         if ($this->option('interface')) {
             $this->createInterface();
         }
+
+        if ($this->option('binding')) {
+            $this->createBinding();
+        }
     }
 
     /**
@@ -62,6 +66,19 @@ class MakeRepo extends GeneratorCommand
 
         return str_replace('DummyRepositoryInterface', "{$names}Interface", null);        
     }
+
+
+    public function createBinding()
+    {
+        $names = Str::studly(class_basename($this->argument('name')));
+
+        $this->call('make:binding', [
+            'name' => $names
+        ]);
+
+        // return str_replace('DummyRepositoryInterface', "{$names}Interface", null);       
+    }
+
  
     /**
      * Replace the class name for the given stub.

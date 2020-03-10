@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleRepo\Commands;
+namespace LaravelSimpleRepo\Commands;
 
 use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;

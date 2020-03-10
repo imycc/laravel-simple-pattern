@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleRepo\Provider;
+namespace LaravelSimpleRepo\Provider;
 
 use Illuminate\Support\ServiceProvider;
 
