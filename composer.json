@@ -1,9 +1,10 @@
 {
     "name": "lsr/laravel-simple-repo",
     "type": "library",
-    "description": "The Laravel Framework.",
+    "description": "A generator of Laravel repository.",
     "keywords": [
-        "Repository",
+        "commands",
+        "repository",
         "laravel"
     ],
     "license": "MIT",

@@ -10,14 +10,11 @@ class LapServiceProvider extends ServiceProvider
     public function boot()
     {
         // publish install files
-        $this->publishes([__DIR__ . '/../config/lap.php' => config_path('lsr.php')], 'install'); // config
-        $this->publishes([__DIR__ . '/../resources/stubs/controllers/BackendController.stub' => app_path('Http/Controllers/Admin/BackendController.php')], 'install'); // backend controller
+        $this->publishes([__DIR__ . '/../config/lsr.php' => config_path('lsr.php')], 'install'); // config
+        $this->publishes([__DIR__ . '/../Provider/BackendServiceProvider.php' => app_path('Providers/BackendServiceProvider.php')], 'install'); // backend controller
 
         // publish config
-        $this->publishes([__DIR__ . '/../config/lap.php' => config_path('lsr.php')], 'config');
-
-        // publish backend controller
-        $this->publishes([__DIR__ . '/../resources/stubs/controllers/BackendController.stub' => app_path('Http/Controllers/Admin/BackendController.php')], 'backend_controller');
+        $this->publishes([__DIR__ . '/../config/lsr.php' => config_path('lsr.php')], 'config');
 
         // Repo commands
         if ($this->app->runningInConsole()) {
@@ -27,15 +24,12 @@ class LapServiceProvider extends ServiceProvider
                 Commands\MakeRepoInterface::class
             ]);
         }
-
-        // load routes
-        $this->loadRoutesFrom(__DIR__ . '/routes.php');
     }
 
     public function register()
     {
         // merge config
-        $this->mergeConfigFrom(__DIR__ . '/../config/lap.php', 'lap');
+        $this->mergeConfigFrom(__DIR__ . '/../config/lsr.php', 'lsr');
     }
 
 }
