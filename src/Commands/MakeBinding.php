@@ -22,7 +22,7 @@ class MakeBinding extends GeneratorCommand
      *
      * @var string
      */
-    public $bindPlaceholder = '//end-binding';
+    public $bindPlaceholder = '//end-binding:dont-remove-it';
 
     /**
      * The type of class being generated.
@@ -43,8 +43,8 @@ class MakeBinding extends GeneratorCommand
         $name = $this->argument('name');
 
         $provider = \File::get($this->getProvidersPath());
-        $repositoryInterface = 'App\Repositories'.'\\' . $name . "Interface" . "::class";
-        $repository = 'App\Repositories'. '\\' . $name . "::class";
+        $repositoryInterface = "'" . 'App\Repositories'.'\\' . $name . "Interface" . "'";
+        $repository = "'". 'App\Repositories'. '\\' . $name . "'";
         \File::put($this->getProvidersPath(), 
                    str_replace($this->bindPlaceholder, "\$this->app->bind($repositoryInterface, $repository);" . PHP_EOL . '        ' . $this->bindPlaceholder, $provider)); 
     }
