@@ -37,7 +37,12 @@ In your `config/app.php` add `LaravelSimpleRepo\LsrServiceProvider::class` and `
 ],
 ```
 
-#### Usage
+### Usage
+We need to copy some file to laravel first.
+```php
+php artisan vendor:publish --provider="LaravelSimpleRepo\LsrServiceProvider" --tag="install"
+```
+
 We must give -b flag for binding repository and its interface in RepositoryServicePorvider.
 
 ```php
