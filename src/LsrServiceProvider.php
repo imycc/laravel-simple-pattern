@@ -29,7 +29,7 @@ class LsrServiceProvider extends ServiceProvider
     public function register()
     {
         // merge config
-        $this->mergeConfigFrom(__DIR__ . '/../config/lsr.php', 'lsr');
+        $this->mergeConfigFrom(__DIR__ . '/config/lsr.php', 'lsr');
     }
 
 }
