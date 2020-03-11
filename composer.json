@@ -1,9 +1,8 @@
 {
-    "name": "laravel/laravel-simple-repo",
+    "name": "lsr/laravel-simple-repo",
     "type": "library",
     "description": "The Laravel Framework.",
     "keywords": [
-        "framework",
         "Repository",
         "laravel"
     ],
