@@ -56,7 +56,7 @@ class MakeBinding extends GeneratorCommand
      */
     public function getProvidersPath()
     {
-        return $this->getBasePath() . '/Providers/' . 'BackendServiceProvider' . '.php';
+        return $this->getBasePath() . '/Providers/' . 'RepositoryServiceProvider' . '.php';
     }
 
     /**

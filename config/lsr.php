@@ -2,11 +2,9 @@
 
 return [
 
-
     'providers' => [
         'basePath' => app()->path(),
-        'backend' => 'App/Providers/BackendServiceProvider',
+        'backend' => 'App/Providers/RepositoryServiceProvider',
     ]
-
 
 ];

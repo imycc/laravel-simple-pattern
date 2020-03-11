@@ -1,10 +1,10 @@
 <?php
 
-namespace LaravelSimpleRepo\Provider;
+namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class BackendServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
 
     public function register()
