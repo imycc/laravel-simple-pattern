@@ -1,6 +1,6 @@
-# Laravel 5 Repositories
+# Laravel Simple Repo
 
-Laravel 5 Repositories is used to abstract the data layer, making our application more flexible to maintain.
+Laravel Simple Repo(LSR) let us easily to create repository and its interface in laravel.
 
 ## Installation
 
@@ -36,3 +36,16 @@ In your `config/app.php` add `LaravelSimpleRepo\LsrServiceProvider::class` and `
     App\Providers\RepositoryServiceProvider::class
 ],
 ```
+
+### Usage
+We need to copy some file to laravel first.
+```php
+php artisan vendor:publish --provider="LaravelSimpleRepo\LsrServiceProvider" --tag="install"
+```
+
+We must give -b flag for binding repository and its interface in RepositoryServicePorvider.
+
+```php
+php artisan make:repo DummyRepository -i -b
+```
+
