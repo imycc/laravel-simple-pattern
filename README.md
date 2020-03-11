@@ -14,6 +14,11 @@ composer require lsr/laravel-simple-repo
 
 ### Laravel
 
+We need to copy some file to laravel first.
+```php
+php artisan vendor:publish --provider="LaravelSimpleRepo\LsrServiceProvider" --tag="install"
+```
+
 #### >= laravel5.7
 
 In your `config/app.php` add `App\Providers\RepositoryServiceProvider::class` to the end of the `providers` array:
@@ -38,10 +43,6 @@ In your `config/app.php` add `LaravelSimpleRepo\LsrServiceProvider::class` and `
 ```
 
 ### Usage
-We need to copy some file to laravel first.
-```php
-php artisan vendor:publish --provider="LaravelSimpleRepo\LsrServiceProvider" --tag="install"
-```
 
 We must give -b flag for binding repository and its interface in RepositoryServicePorvider.
 
