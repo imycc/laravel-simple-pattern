@@ -9,6 +9,6 @@ class RepositoryServiceProvider extends ServiceProvider
 
     public function register()
     {
-        //end-bindings
+        //end-binding:dont-remove-it
     }
 }
