@@ -27,7 +27,7 @@
     "extra": {
         "laravel": {
           "providers": [
-            "LaravelSimpleRepo\\Provider\\BackendServiceProvider"
+            "LaravelSimpleRepo\\Provider\\LsrServiceProvider"
           ]
         }
     }

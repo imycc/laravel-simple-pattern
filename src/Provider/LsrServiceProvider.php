@@ -5,7 +5,7 @@ namespace LaravelSimpleRepo\Provider;
 
 use Illuminate\Support\ServiceProvider;
 
-class LapServiceProvider extends ServiceProvider
+class LsrServiceProvider extends ServiceProvider
 {
     public function boot()
     {
