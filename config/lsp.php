@@ -4,7 +4,8 @@ return [
 
 
     'providers' => [
-        'backend' => 'App\Providers\BackendServiceProvider',
+        'basePath' => app()->path(),
+        'backend' => 'App/Providers/BackendServiceProvider',
     ]
 
 

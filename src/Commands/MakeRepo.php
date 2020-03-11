@@ -78,7 +78,6 @@ class MakeRepo extends GeneratorCommand
 
         // return str_replace('DummyRepositoryInterface', "{$names}Interface", null);       
     }
-
  
     /**
      * Replace the class name for the given stub.
@@ -130,6 +129,7 @@ class MakeRepo extends GeneratorCommand
     {
         return [
             ['interface', 'i', InputOption::VALUE_NONE, 'Generate Repository Interface.'],
+            ['binding', 'b', InputOption::VALUE_NONE, 'Binding repository and its interface.'],
         ];
     }
 }

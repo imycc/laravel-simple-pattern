@@ -8,7 +8,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 
-class MakeRepoInterface extends GeneratorCommand
+class MakeBinding extends GeneratorCommand
 {
     /**
      * The console command name.
@@ -22,7 +22,14 @@ class MakeRepoInterface extends GeneratorCommand
      *
      * @var string
      */
-    public $bindPlaceholder = '//:end-bindings:';
+    public $bindPlaceholder = '//end-binding';
+
+    /**
+     * The type of class being generated.
+     *
+     * @var string
+     */
+    protected $type = 'Bindings';
 
     /**
      * The console command description.
@@ -35,10 +42,21 @@ class MakeRepoInterface extends GeneratorCommand
 
         $name = $this->argument('name');
 
-        $provider = \File::get($this->getProviderPath());
-        $repositoryInterface = '\\' . $name . "Interface" . "::class";
-        \File::put($this->getProviderPath(), 
-                   str_replace($this->bindPlaceholder, "\$this->app->bind({$repositoryInterface}, $name);" . PHP_EOL . '        ' . $this->bindPlaceholder, $provider)); 
+        $provider = \File::get($this->getProvidersPath());
+        $repositoryInterface = 'App\Repositories'.'\\' . $name . "Interface" . "::class";
+        $repository = 'App\Repositories'. '\\' . $name . "::class";
+        \File::put($this->getProvidersPath(), 
+                   str_replace($this->bindPlaceholder, "\$this->app->bind($repositoryInterface, $repository);" . PHP_EOL . '        ' . $this->bindPlaceholder, $provider)); 
+    }
+
+    /**
+     * Get destination path for generated file.
+     *
+     * @return string
+     */
+    public function getProvidersPath()
+    {
+        return $this->getBasePath() . '/Providers/' . 'BackendServiceProvider' . '.php';
     }
 
     /**
@@ -46,9 +64,9 @@ class MakeRepoInterface extends GeneratorCommand
      *
      * @return string
      */
-    public function getProviderPath()
+    public function getBasePath()
     {
-        return config('lsp.provider.backend');
+        return config('lsp.providers.basePath', app()->path());
     }
 
     /**
@@ -59,6 +77,25 @@ class MakeRepoInterface extends GeneratorCommand
     protected function getStub()
     {
         return __DIR__.'/Stubs/make-binding.stub';
+    }
+
+    /**
+     * Get array replacements.
+     *
+     * @return array
+     */
+    public function getReplacements()
+    {
+        $name = $this->argument('name');
+
+        $repositoryInterface = '\\' . $name . "Interface" . "::class";
+        $repository = '\\' . $name . "::class";
+
+        return array_merge(parent::getReplacements(), [
+            'repositoryinterface' => $repositoryInterface,
+            'repository' => $repository,
+            'placeholder' => $this->bindPlaceholder,
+        ]);
     }
 
 }
