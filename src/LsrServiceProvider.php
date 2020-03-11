@@ -10,7 +10,7 @@ class LsrServiceProvider extends ServiceProvider
     {
         // publish install files
         $this->publishes([__DIR__ . '/../config/lsr.php' => config_path('lsr.php')], 'install'); // config
-        $this->publishes([__DIR__ . '/../Provider/Stubs/RepositoryServiceProvider.stub' => app_path('Providers/BackendServiceProvider.php')], 'install'); // backend controller
+        $this->publishes([__DIR__ . '/Provider/Stubs/RepositoryServiceProvider.stub' => app_path('Providers/RepositoryServiceProvider.php')], 'install'); // backend controller
 
         // publish config
         $this->publishes([__DIR__ . '/../config/lsr.php' => config_path('lsr.php')], 'config');
@@ -27,8 +27,7 @@ class LsrServiceProvider extends ServiceProvider
 
     public function register()
     {
-        // merge config
-        // $this->mergeConfigFrom(__DIR__ . '/config/lsr.php', 'lsr');
+        
     }
 
 }
