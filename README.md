@@ -9,7 +9,7 @@ Laravel Simple Pattern let us easily to create desgin pattern and its interface 
 Execute the following command to get the latest version of the package:
 
 ```terminal
-composer require lsp/laravel-simple-pattern
+composer require imycc/laravel-simple-pattern
 ```
 
 ### Laravel
