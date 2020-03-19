@@ -1,6 +1,6 @@
 # Laravel Simple Repo
 
-Laravel Simple Repo(LSR) let us easily to create repository and its interface in laravel.
+Laravel Simple Repo(lsp) let us easily to create repository and its interface in laravel.
 
 ## Installation
 
@@ -9,14 +9,14 @@ Laravel Simple Repo(LSR) let us easily to create repository and its interface in
 Execute the following command to get the latest version of the package:
 
 ```terminal
-composer require lsr/laravel-simple-repo
+composer require lsp/laravel-simple-pattern
 ```
 
 ### Laravel
 
 We need to copy some file to laravel first.
 ```php
-php artisan vendor:publish --provider="LaravelSimpleRepo\LsrServiceProvider" --tag="install"
+php artisan vendor:publish --provider="LaravelSimplePattern\lspServiceProvider" --tag="install"
 ```
 
 #### >= laravel5.7
@@ -32,12 +32,12 @@ In your `config/app.php` add `App\Providers\RepositoryServiceProvider::class` to
 
 #### Other
 
-In your `config/app.php` add `LaravelSimpleRepo\LsrServiceProvider::class` and `App\Providers\RepositoryServiceProvider::class` to the end of the `providers` array:
+In your `config/app.php` add `LaravelSimplePattern\lspServiceProvider::class` and `App\Providers\RepositoryServiceProvider::class` to the end of the `providers` array:
 
 ```php
 'providers' => [
     ...
-    LaravelSimpleRepo\LsrServiceProvider::class,
+    LaravelSimplePattern\lspServiceProvider::class,
     App\Providers\RepositoryServiceProvider::class
 ],
 ```

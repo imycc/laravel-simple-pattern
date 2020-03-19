@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelSimpleRepo\Commands;
+namespace LaravelSimplePattern\Commands;
 
 use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
@@ -66,7 +66,7 @@ class MakeBinding extends GeneratorCommand
      */
     public function getBasePath()
     {
-        return config('lsr.providers.basePath', app()->path());
+        return config('lsp.providers.basePath', app()->path());
     }
 
     /**

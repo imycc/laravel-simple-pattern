@@ -1,10 +1,9 @@
 {
-    "name": "lsr/laravel-simple-repo",
+    "name": "lsp/laravel-simple-pattern",
     "type": "library",
-    "description": "A generator of Laravel repository.",
+    "description": "A generator for Laravel Design Pattern.",
     "keywords": [
-        "commands",
-        "repository",
+        "design pattern",
         "laravel"
     ],
     "license": "MIT",
@@ -21,13 +20,13 @@
     },
     "autoload": {
         "psr-4": {
-          "LaravelSimpleRepo\\": "src/"
+          "LaravelSimplePattern\\": "src/"
         }
     },
     "extra": {
         "laravel": {
           "providers": [
-            "LaravelSimpleRepo\\LsrServiceProvider"
+            "LaravelSimplePattern\\lspServiceProvider"
           ]
         }
     },
