@@ -1,6 +1,6 @@
-# Laravel Simple Repo
+# Laravel Simple Pattern
 
-Laravel Simple Repo(lsp) let us easily to create repository and its interface in laravel.
+Laravel Simple Pattern(lsp) let us easily to create desgin pattern and its interface in laravel.
 
 ## Installation
 
@@ -19,7 +19,7 @@ We need to copy some file to laravel first.
 php artisan vendor:publish --provider="LaravelSimplePattern\lspServiceProvider" --tag="install"
 ```
 
-#### >= laravel5.7
+#### >= laravel 5.7
 
 In your `config/app.php` add `App\Providers\RepositoryServiceProvider::class` to the end of the `providers` array:
 
