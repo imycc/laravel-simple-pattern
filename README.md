@@ -1,6 +1,6 @@
 # Laravel Simple Pattern
 
-Laravel Simple Pattern(lsp) let us easily to create desgin pattern and its interface in laravel.
+Laravel Simple Pattern let us easily to create desgin pattern and its interface in laravel.
 
 ## Installation
 

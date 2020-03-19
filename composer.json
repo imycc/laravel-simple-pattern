@@ -1,5 +1,5 @@
 {
-    "name": "lsp/laravel-simple-pattern",
+    "name": "imycc/laravel-simple-pattern",
     "type": "library",
     "description": "A generator for Laravel Design Pattern.",
     "keywords": [
