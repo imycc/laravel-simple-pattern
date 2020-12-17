@@ -4,7 +4,7 @@ namespace LaravelSimplePattern;
 
 use Illuminate\Support\ServiceProvider;
 
-class lspServiceProvider extends ServiceProvider
+class LspServiceProvider extends ServiceProvider
 {
     public function boot()
     {

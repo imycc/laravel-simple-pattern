@@ -16,7 +16,7 @@ composer require imycc/laravel-simple-pattern
 
 We need to copy some file to laravel first.
 ```php
-php artisan vendor:publish --provider="LaravelSimplePattern\lspServiceProvider" --tag="install"
+php artisan vendor:publish --provider="LaravelSimplePattern\LspServiceProvider" --tag="install"
 ```
 
 #### >= laravel 5.7
@@ -32,12 +32,12 @@ In your `config/app.php` add `App\Providers\RepositoryServiceProvider::class` to
 
 #### Other
 
-In your `config/app.php` add `LaravelSimplePattern\lspServiceProvider::class` and `App\Providers\RepositoryServiceProvider::class` to the end of the `providers` array:
+In your `config/app.php` add `LaravelSimplePattern\LspServiceProvider::class` and `App\Providers\RepositoryServiceProvider::class` to the end of the `providers` array:
 
 ```php
 'providers' => [
     ...
-    LaravelSimplePattern\lspServiceProvider::class,
+    LaravelSimplePattern\LspServiceProvider::class,
     App\Providers\RepositoryServiceProvider::class
 ],
 ```
